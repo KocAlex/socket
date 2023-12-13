@@ -5,6 +5,7 @@ SERVER_PORT = 5006 #???
 BUFFER_SIZE = 1024
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.bind((SERVER_IP, SERVER_PORT))
 
 #Blocco 2 (Cliente)
 #???

@@ -7,7 +7,7 @@ BUFFER_SIZE = 1024
 
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-s.bind(SERVER_IP, SERVER_PORT)
+s.bind((SERVER_IP, SERVER_PORT))
 while True:
     #Blocco 1 (Server)
     primoNumero = float(input("Inserisci il primo numero: "))
