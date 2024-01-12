@@ -8,7 +8,7 @@ BUFFER_SIZE = 1024
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 while True:
-    #Blocco 1 (Server)
+    #Blocco 1
     primoNumero = float(input("Inserisci il primo numero: "))
     operazione = input("Inserisci l'operazione (simbolo)")
     secondoNumero = float(input("Inserisci il secondo numero: "))
@@ -24,12 +24,3 @@ while True:
 
 
 
-
-
-#print("Server in attesa di messaggi...")
-
-#while True:
-#    data, addr = sock.recvfrom(BUFFER_SIZE)
-#    print(f"Messaggio ricevuto dal client {addr}: {data.decode()}")
-#    reply = "pong"
-#    sock.sendto(reply.encode(), addr)
