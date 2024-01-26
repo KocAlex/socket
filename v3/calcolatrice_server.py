@@ -54,7 +54,7 @@ def avvia_server(indirizzo, porta):
 #MAIN
 #Configurazione del server
 IP = "127.0.0.1"
-PORTA = 22224
+PORTA = 65432
 DIM_BUFFER = 1024
 
 avvia_server(IP, PORTA)
