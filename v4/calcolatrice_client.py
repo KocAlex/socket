@@ -10,12 +10,12 @@ import multiprocessing
 HOST = "127.0.0.1" #Indirizzo del server
 PORT = 22224 #Porta usata dal server
 NUM_WORKERS = 15
-OPERAZIONI = ["+", "-", "*", "/"]
+OPERAZIONI = ["+", "-", "*", "/", "%"]
 
 def genera_richieste(address, port):
     #Creazione della socket del server con il costrutto with
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock_service:
-        sock_service.connect((HOST, PORT))
+        sock_service.connect((address, port))
 
         primoNumero = random.randint(0, 100)
         operazione = OPERAZIONI[random.randint(0, 3)] 
