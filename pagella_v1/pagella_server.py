@@ -29,7 +29,7 @@ def ricevi_comandi(sock_service, addr_client):
                     risposta = "ok"
                 elif comando == "get":
                     print("GET by ", (sock_service, addr_client))
-                    if tabellone.pagelle[tabellone.cercaPagella(parametri[0])] != -1:
+                    if tabellone.cercaPagella(parametri[0]) != -1:
                         valori = tabellone[tabellone.cercaPagella(parametri[0])]
                         risposta = "ok"
                     else:
@@ -37,7 +37,7 @@ def ricevi_comandi(sock_service, addr_client):
                         valori = "Studente non trovato"   
                 elif comando == "set":
                     print("SET by ", (sock_service, addr_client))
-                    if tabellone.pagelle[tabellone.cercaPagella(parametri[0])] == -1:
+                    if tabellone.cercaPagella(parametri[0]) == -1:
                         tabellone.push(classi.Pagella(parametri[0]))
                         valori = "Studente inserito"
                         risposta = "ok"
@@ -46,11 +46,11 @@ def ricevi_comandi(sock_service, addr_client):
                         risposta = "ko"
                 elif comando == "put":
                     print("PUT by ", (sock_service, addr_client))
-                    if tabellone.pagelle[tabellone.cercaPagella(parametri[0])] != -1:
-                        tabellone.pagelle[tabellone.cercaPagella(parametri[0])].append((parametri[1], parametri[2], parametri[3]))
+                    if tabellone.cercaPagella(parametri[0]) != -1 and parametri[1] not in tabellone.pagelle[tabellone.cercaPagella(parametri[0])].materie: #Valori true-ish e false-ish dovrebbero salvarmi dal far andare in errore questa riga
+                        tabellone.pagelle[tabellone.cercaPagella(parametri[0])].aggiungiMateria((parametri[1], parametri[2], parametri[3]))
                         risposta = "ok"
                         valori = "Dati inseriti"
-                    #TODO: CONTROLLO MATERIA GIA' INSERITA
+                    
                     else:
                         risposta = "ko"
                         valori = "Studente non presente"

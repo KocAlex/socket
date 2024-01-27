@@ -3,6 +3,8 @@ class Pagella:
   def __init__(self, nome):
     self.nome = nome
     self.pagella = []
+    #Adattamento
+    self.materie = []
 
   
   def populate(self):
@@ -52,6 +54,10 @@ class Pagella:
       if(self.pagella[i][1] < min):
         min = self.pagella[i][1]
     return {"minimo": min, "massimo" : max}
+  
+  def aggiungiMateria(self, dati):
+    self.materie.append(dati[1])
+    self.pagella.append(dati)
 
 
 class Tabellone:
